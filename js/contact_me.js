@@ -9,10 +9,10 @@ $( document ).ready(function() {
 //             var author = data.author;
 //             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
          // url: "http://quotes.stormconsultancy.co.uk/random.json",
-        url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
+        url : "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
         method:"GET",
         contentType: "application/json;odata=verbose",
-        dataType: 'json',
+        dataType: 'jsonp',
         success: function (data) { 
             var quote = data[0].content;
             var author = data[0].title;
