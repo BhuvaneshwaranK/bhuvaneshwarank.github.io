@@ -11,7 +11,8 @@ $( document ).ready(function() {
          // url: "http://quotes.stormconsultancy.co.uk/random.json",
         url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
         method:"GET",
-        dataType: 'jsonp',
+        contentType: "application/json;odata=verbose",
+        dataType: 'json',
         success: function (data) { 
             var quote = data[0].content;
             var author = data[0].title;
