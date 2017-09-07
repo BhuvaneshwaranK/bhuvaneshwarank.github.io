@@ -15,7 +15,7 @@ $( document ).ready(function() {
             withCredentials: false
         },
         success: function (data) { 
-            data=(JSON.parse(data)); 
+//             data=(JSON.parse(data)); 
             var quote = data.quote;
             var author = data.author;
 //             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
