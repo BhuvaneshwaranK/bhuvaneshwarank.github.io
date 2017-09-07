@@ -16,13 +16,14 @@ $( document ).ready(function() {
             var quote = data[0].content;
             var author = data[0].title;
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-            console.log("success");
+            console.log("success now");
             
         },
         error: function (data) {
             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
             author = "Alan Perlis";
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+            console.log("fail");
         }
     });
 });
