@@ -4,17 +4,19 @@ $( document ).ready(function() {
 //   $("#quote_text").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
 // });
     $.ajax({
-        url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=1",
+        url: "https://andruxnet-random-famous-quotes.p.mashape.com/",
         method:"GET",
         contentType: "application/json;odata=verbose",
         headers: {
           "X-Mashape-Key": "1dxu1jK3JymshsynO0mMMWuQOYHxp1pR5Q8jsnJGSzuBNxtBp1",
-          "Accept": "application/json"
+           "Content-Type": "application/x-www-form-urlencoded",
+           "Accept": "application/json"
         },
         xhrFields: {
             withCredentials: false
         },
         success: function (data) { 
+            console.log("data",data);
 //             data=(JSON.parse(data)); 
             var quote = data.quote;
             var author = data.author;
