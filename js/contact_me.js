@@ -1,36 +1,36 @@
 
 $( document ).ready(function() {
-    $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-  $("#quote_text").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
-});
-    // $.ajax({
-    //     url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=1",
-    //     method:"GET",
-    //     contentType: "application/json;odata=verbose",
-    //     headers: {
-    //       "X-Mashape-Key": "1dxu1jK3JymshsynO0mMMWuQOYHxp1pR5Q8jsnJGSzuBNxtBp1",
-    //       "Accept": "application/json"
-    //     },
-    //     xhrFields: {
-    //         withCredentials: false
-    //     },
-    //     success: function (data) { 
-    //         data=(JSON.parse(data)); 
-    //         // var quote = data.quote;
-    //         // var author = data.author;
-    //         quote = "A year spent in artificial intelligence is enough to make one believe in God.";
-    //         author = "Alan Perlis";
-    //         $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-    //         console.log("success");
+//     $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+//   $("#quote_text").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+// });
+    $.ajax({
+        url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=1",
+        method:"GET",
+        contentType: "application/json;odata=verbose",
+        headers: {
+          "X-Mashape-Key": "1dxu1jK3JymshsynO0mMMWuQOYHxp1pR5Q8jsnJGSzuBNxtBp1",
+          "Accept": "application/json"
+        },
+        xhrFields: {
+            withCredentials: false
+        },
+        success: function (data) { 
+            data=(JSON.parse(data)); 
+            var quote = data.quote;
+            var author = data.author;
+//             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
+//             author = "Alan Perlis";
+            $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+            console.log("success");
             
-    //     },
-    //     error: function (data) {
-    //         quote = "A year spent in artificial intelligence is enough to make one believe in God.";
-    //         author = "Alan Perlis";
-    //         $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-    //         console.log("error");
-    //     }
-    // });
+        },
+        error: function (data) {
+            quote = "A year spent in artificial intelligence is enough to make one believe in God.";
+            author = "Alan Perlis";
+            $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+            console.log("error");
+        }
+    });
 });
 $(function() {
 
