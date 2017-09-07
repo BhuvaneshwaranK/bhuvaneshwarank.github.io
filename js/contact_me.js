@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
     $.ajax({
-        url: "http://quotes.stormconsultancy.co.uk/random.json",
+        url: "https://quotes.stormconsultancy.co.uk/random.json",
         method:"GET",
         dataType: 'json',
         success: function (data) { 
