@@ -1,13 +1,22 @@
 
 $( document ).ready(function() {
     $.ajax({
-        url: "https://quotes.stormconsultancy.co.uk/random.json",
+//         url: "https://quotes.stormconsultancy.co.uk/random.json",
+//         method:"GET",
+//         dataType: 'json',
+//         success: function (data) { 
+//             var quote = data.quote;
+//             var author = data.author;
+//             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+         // url: "http://quotes.stormconsultancy.co.uk/random.json",
+        url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
         method:"GET",
-        dataType: 'json',
+        // dataType: 'json',
         success: function (data) { 
-            var quote = data.quote;
-            var author = data.author;
+            var quote = data[0].content;
+            var author = data[0].title;
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+            console.log("success");
             
         },
         error: function (data) {
