@@ -14,10 +14,12 @@ $( document ).ready(function() {
         contentType: "application/json;odata=verbose",
         dataType: 'jsonp',
         success: function (data) { 
-            var quote = data[0].content;
-            var author = data[0].title;
-            $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+//             var quote = data[0].content;
+//             var author = data[0].title;
+//             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
             console.log("success now");
+            console.log(data);
+            console.log(type(data));
             
         },
         error: function (data) {
