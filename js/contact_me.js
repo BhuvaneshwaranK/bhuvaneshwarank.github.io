@@ -1,26 +1,15 @@
 
 $( document ).ready(function() {
     $.ajax({
-//         url: "https://quotes.stormconsultancy.co.uk/random.json",
-//         method:"GET",
-//         dataType: 'json',
-//         success: function (data) { 
-//             var quote = data.quote;
-//             var author = data.author;
-//             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-         // url: "http://quotes.stormconsultancy.co.uk/random.json",
-        url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
+        url: "http://quotes.stormconsultancy.co.uk/random.json",
         method:"GET",
-        contentType: "application/json;odata=verbose",
-        dataType: 'jsonp',
+        dataType: 'json',
         success: function (data) { 
-//             var quote = data[0].content;
-//             var author = data[0].title;
-//             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-            console.log("success now");
-            console.log(data);
-            console.log(type(data));
-            
+            var quote = data.quote;
+            var author = data.author;
+            $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+         // url: "http://quotes.stormconsultancy.co.uk/random.json",
+//         url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
         },
         error: function (data) {
             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
