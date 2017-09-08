@@ -1,21 +1,41 @@
 
 $( document ).ready(function() {
     $.ajax({
-        url: "http://quotes.stormconsultancy.co.uk/random.json",
-        method:"GET",
-        dataType: 'json',
+//         url: "http://quotes.stormconsultancy.co.uk/random.json",
+//         method:"GET",
+//         dataType: 'json',
+//         success: function (data) { 
+//             var quote = data.quote;
+//             var author = data.author;
+//             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+//          // url: "http://quotes.stormconsultancy.co.uk/random.json",
+// //         url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
+//         },
+//         error: function (data) {
+//             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
+//             author = "Alan Perlis";
+//             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
+//             console.log("fail");
+//         }
+        url : 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?',
+        dataType: 'jsonp',
         success: function (data) { 
-            var quote = data.quote;
-            var author = data.author;
+            var quote = data.quoteText;
+            if(data.quoteAuthor != ""){
+              var author = data.author;
+            }
+            else{
+              var author = "Unknown";
+            }
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-         // url: "http://quotes.stormconsultancy.co.uk/random.json",
-//         url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
+            console.log("success");
+            
         },
         error: function (data) {
             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
             author = "Alan Perlis";
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-            console.log("fail");
+            console.log("error");
         }
     });
 });
