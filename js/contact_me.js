@@ -1,9 +1,5 @@
-
-$( document ).ready(function() {
-    $.ajax({
-//         url: "http://quotes.stormconsultancy.co.uk/random.json",
-//         url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
-
+function getquotes(){
+  $.ajax({
         url : 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?',
         dataType: 'jsonp',
         success: function (data) { 
@@ -23,58 +19,52 @@ $( document ).ready(function() {
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
         }
     });
-});
-$(function() {
+}
 
+function getWeatherDetails(){
+  var api = "https://fcc-weather-api.glitch.me/api/current?";
+  var lat, lon;
+  var tempUnit = 'C';
+  var currentTempInCelsius;
 
-  $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
-    preventSubmit: true,
-    submitError: function($form, event, errors) {
-      // additional error messages or events
-    },
-    submitSuccess: function($form, event) {
-      event.preventDefault(); // prevent default submit behaviour
-      // get values from FORM
-      var name = $("input#name").val();
-      var email = $("input#email").val();
-      var phone = $("input#phone").val();
-      var message = $("textarea#message").val();
-      var firstName = name; // For Success/Failure Message
-      // Check for white space in name for Success/Fail message
-      if (firstName.indexOf(' ') >= 0) {
-        firstName = name.split(' ').slice(0, -1).join(' ');
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var lat = "lat=" + position.coords.latitude;
+      var lon = "lon=" + position.coords.longitude;
+      getWeather(lat, lon);
+    });
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+
+  $("#tempunit").click(function () {
+    var currentTempUnit = $("#tempunit").text();
+    var newTempUnit = currentTempUnit == "C" ? "F" : "C";
+    $("#tempunit").text(newTempUnit);
+    if (newTempUnit == "F") {
+      var fahTemp = Math.round(parseInt($("#temp").text()) * 9 / 5 + 32);
+      $("#temp").text(fahTemp + " " + String.fromCharCode(176));
+    } else {
+      $("#temp").text(currentTempInCelsius + " " + String.fromCharCode(176));
+    }
+  });
+
+  function getWeather(lat, lon) {
+    var urlString = api + lat + "&" + lon;
+    $.ajax({
+      url: urlString, success: function (result) {
+        $("#city").text(result.name + ", ");
+        $("#country").text(result.sys.country);
+        currentTempInCelsius = Math.round(result.main.temp * 10) / 10;
+        $("#temp").text(currentTempInCelsius + " " + String.fromCharCode(176));
+        $("#tempunit").text(tempUnit + ", ");
+        $("#desc").text(result.weather[0].main);
       }
-      $this = $("#sendMessageButton");
-      $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
+    });
+  }
+}
 
-       setTimeout(function() {
-            // Success message
-          $('#success').html("<div class='alert alert-success'>");
-          $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-            .append("</button>");
-          $('#success > .alert-success')
-            .append("<strong>Your message has been sent. </strong>");
-          $('#success > .alert-success')
-            .append('</div>');
-          //clear all fields
-          $('#contactForm').trigger("reset");
-            $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
-          }, 1000);
-
-  
-    },
-    filter: function() {
-      return $(this).is(":visible");
-    },
-  });
-
-  $("a[data-toggle=\"tab\"]").click(function(e) {
-    e.preventDefault();
-    $(this).tab("show");
-  });
-});
-
-/*When clicking on Full hide fail/success boxes */
-$('#name').focus(function() {
-  $('#success').html('');
+$( document ).ready(function() {
+    getquotes();
+    getWeatherDetails();
 });
