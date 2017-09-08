@@ -2,7 +2,6 @@
 $( document ).ready(function() {
     $.ajax({
 //         url: "http://quotes.stormconsultancy.co.uk/random.json",
-//         url: "http://quotes.stormconsultancy.co.uk/random.json",
 //         url : "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=mycallback",
 
         url : 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?',
@@ -16,14 +15,12 @@ $( document ).ready(function() {
               var author = "Unknown";
             }
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-            console.log("success");
             
         },
         error: function (data) {
             quote = "A year spent in artificial intelligence is enough to make one believe in God.";
             author = "Alan Perlis";
             $('#quote_text').append("<p>"+ quote + "</p><p>&mdash; " + author + "</p>");
-            console.log("error");
         }
     });
 });
