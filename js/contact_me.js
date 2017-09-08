@@ -57,7 +57,7 @@ function getWeatherDetails(){
         $("#country").text(result.sys.country);
         currentTempInCelsius = Math.round(result.main.temp * 10) / 10;
         $("#temp").text(currentTempInCelsius + " " + String.fromCharCode(176));
-        $("#tempunit").text(tempUnit + ", ");
+        $("#tempunit").text(tempUnit);
         $("#desc").text(result.weather[0].main);
         $('#desc_icon').attr('src',result.weather[0].icon);
       }
