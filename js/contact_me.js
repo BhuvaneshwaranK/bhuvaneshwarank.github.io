@@ -1,3 +1,47 @@
+var index = 0;
+var captionLength = 0;
+var captionOptions = ["Data Scientist","Python Enthusiast","Social Activist"]
+
+// this will make the cursor blink at 400ms per cycle
+function cursorAnimation() {
+  $('#cursor').animate({
+      opacity: 0
+  }, 400).animate({
+      opacity: 1
+  }, 400);
+}
+
+// this types the caption
+function type() {
+    $caption.html(caption.substr(0, captionLength++));
+    if(captionLength < caption.length+1) {
+        setTimeout('type()', 70);
+    }
+}
+
+// this erases the caption
+function erase() {
+    $caption.html(caption.substr(0, captionLength--));
+    if(captionLength >= 0) {
+        setTimeout('erase()', 50);
+    }
+}
+
+// this instigates the cycle of typing the captions
+function showCaptions() {
+  caption = captionOptions[index];
+  type();
+  if (index < (captionOptions.length - 1)) {
+    index++
+    setTimeout('erase()', 4000);
+    setTimeout('showCaptions()', 6000)
+  } else {
+      setTimeout('erase()', 4000);
+      index = 0;
+      setTimeout('showCaptions()', 6000)
+  }
+}
+
 function getquotes(){
   $.ajax({
         url : 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?',
@@ -66,6 +110,12 @@ function getWeatherDetails(){
 }
 
 $( document ).ready(function() {
+      // use setInterval so that it will repeat itself
+    setInterval('cursorAnimation()', 600);
+    $caption = $('#caption');
+    
+    // use setTimeout so that it only gets called once
+    setTimeout('showCaptions()', 1000);
     getquotes();
     getWeatherDetails();
 });
