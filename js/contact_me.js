@@ -118,4 +118,13 @@ $( document ).ready(function() {
     setTimeout('showCaptions()', 1000);
     getquotes();
     getWeatherDetails();
+    $('.blog').slick({
+        prevArrow: false,
+        nextArrow: false,
+        adaptiveHeight: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
 });
