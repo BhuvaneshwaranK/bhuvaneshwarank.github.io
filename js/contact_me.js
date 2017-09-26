@@ -122,6 +122,7 @@ $( document ).ready(function() {
         prevArrow: false,
         nextArrow: false,
         adaptiveHeight: true,
+        lazyLoad: 'ondemand',
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
