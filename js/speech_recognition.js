@@ -36,6 +36,7 @@ function show_result(){
                 $('#pic_response').append('<img class="img-fluid" src="img/profile3.jpg">');
             }
             else if(final_transcript.toLowerCase() == 'show expense report'){
+                $("#report_response").css("display", "block");
                 $('#report_response').animate({bottom: '-100px'});
             }
   final_transcript = "";
