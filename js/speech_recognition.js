@@ -58,6 +58,7 @@ $( document ).ready(function() {
             // $('#mic').css('color', 'black');
             console.log("in onend");
             recognizing = false;
+            recognition.start();
             console.log("-------------",final_transcript);
             
             
