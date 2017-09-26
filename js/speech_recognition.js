@@ -38,6 +38,7 @@ function show_result(){
             else if(final_transcript.toLowerCase() == 'show expense report'){
                 $('#report_response').animate({bottom: '-100px'});
             }
+  final_transcript = "";
 }
 
 
