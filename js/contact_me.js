@@ -121,7 +121,7 @@ $( document ).ready(function() {
     $('.blog').slick({
         prevArrow: false,
         nextArrow: false,
-//         adaptiveHeight: true,
+        adaptiveHeight: true,
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
