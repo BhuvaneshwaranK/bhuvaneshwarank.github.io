@@ -15,12 +15,10 @@ function capitalize(s) {
 }
 
 function startConverting() {
-    console.log("coming");
   if (recognizing) {
     recognition.stop();
     return;
   }
-  console.log("25");
   final_transcript = '';
   recognition.lang = 'en-US';
   recognition.start();
@@ -51,30 +49,19 @@ $( document ).ready(function() {
         recognition.maxAlternatives = 1;
 
         recognition.onstart = function() {
-            
-            // $('#mic').css('color', 'red');
-            console.log("in onstart");
             recognizing = true;
         };
         recognition.onend = function() {
-            // $('#mic').css('color', 'black');
-            console.log("in onend");
             recognizing = false;
             recognition.start();
-            console.log("-------------",final_transcript);
             
             
         };
         recognition.onspeechstart = function() {    
-            console.log("in onspeechstart");
-            // setTimeout(function(){
-            // 	recognition.stop(); 
-            // }, 8000);
             
         };
 
         recognition.onresult = function(event) {
-            console.log("in onresult");
             var interim_transcript = '';
             if (typeof(event.results) == 'undefined') {
             recognition.onend = null;
