@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Voice Search Demo">
+    <meta name="author" content="K Bhuvaneshwaran">
+    <meta name="keywords" content="voice search, speech recognition, siri demo, webkit speech recognition API">
+
+    <title>Speech Recognition Demo using Webkit Speech API</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet">
+    <style>
+    #speech_recognition{
+      margin-top: 2%;
+    }
+    </style>
+    <script>
+    </script>
+
+  </head>
+  <body id="page-top">
+     <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Bhuvaneshwaran K</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://bhuvaneshwarank.github.io/#portfolio" target="_blank">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://bhuvaneshwarank.github.io/#about" target="_blank">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://bhuvaneshwarank.github.io/#blog" target="_blank">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://bhuvaneshwarank.github.io/#quote" target="_blank">Quote</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="./resume/BhuResumeLatest.pdf" target="_blank">Resume</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      
+       <!--Blog Section -->
+    <section id="speech_recognition">
+      <div class="container">
+        <h3 class="text-center">Speech Recognition - <i> Just play with it!</h3>
+        <img class="img-fluid" src="img/portfolio/professionalspeech.png" alt="">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+          <p>This demo is done with using Google's Web Speech API. The new JavaScript <a href="https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API" target="_blank">Web Speech API</a> makes it easy to add speech recognition to our web pages.</p>
+          <p>This API allows fine control and flexibility over the speech recognition capabilities in Chrome version 25 and later. Here's an example with the sample demo which will respond immediately while speaking.</p>
+          <hr>
+          <br><p><strong><i>Let's try simple one...</i></strong></p>
+          <p><i class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Click Mic icon and Say "Hello!"</p>
+          <h3 id="hello_response" class="text-center"></h3>
+          <hr>
+          <br><p><strong><i>Let's try something more interesting...</i></strong></p>
+          <p><i  class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Click Mic icon and Say "Show me your picture!"</p>
+          <div id="pic_response"></div>
+          <!--<img class="img-fluid" src="img/profile3.jpg">-->
+          <hr>
+          <br><p><strong><i>That's cool. But in the real world it's not all hello and my picture... </i></strong></p>
+          <p><i class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Click Mic icon and Say "Show Expense Report!"</p>
+          <div id="report_response" style="display: none;"><img class="img-fluid" src="img/portfolio/expense_report1.jpg"></div>
+          <hr>
+          <p onclick="startButton(event)" class="text-center"><i id="mic" class="fa fa-microphone fa-5x" aria-hidden="true"></i></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="text-center">
+      <div class="footer-above">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col col-md-6">
+              <h3>Location</h3>
+              <p>C V Raman Nagar
+                <br>Bangalore, Karnataka</p>
+            </div>
+            <div class="footer-col col-md-6">
+              <h3>Around the Web</h3>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="https://www.facebook.com/bhuvanesh.ji.7" target="_blank">
+                    <i class="fa fa-fw fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="https://www.quora.com/profile/Bhuvanesh-Waran-6" target="_blank">
+                    <i class="fa fa-fw fa-quora"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="https://twitter.com/lakshmananji" target="_blank">
+                    <i class="fa fa-fw fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="https://www.linkedin.com/in/bhuvaneshwarank/" target="_blank">
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="https://medium.com/@cselakshmanan" target="_blank">
+                    <i class="fa fa-fw fa-medium"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="mailto:cselakshmanan@gmail.com" target="_top">
+                    <i class="fa fa-fw fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-below">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              Copyright &copy; Bhuvaneshwarank 2017
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+      <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/speech_recognition.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
+    <script src="js/slick.min.js"></script>
+  </body>
+</html>
