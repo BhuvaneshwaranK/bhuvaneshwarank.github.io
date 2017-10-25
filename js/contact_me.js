@@ -119,6 +119,7 @@ $( document ).ready(function() {
     getquotes();
     getWeatherDetails();
     $('.blog').slick({
+        dots: true,
         prevArrow: false,
         nextArrow: false,
         adaptiveHeight: true,
