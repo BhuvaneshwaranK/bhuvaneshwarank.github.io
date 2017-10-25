@@ -119,9 +119,8 @@ $( document ).ready(function() {
     getquotes();
     getWeatherDetails();
     $('.blog').slick({
-        dots: true,
-        prevArrow: false,
-        nextArrow: false,
+        prevArrow: true,
+        nextArrow: true,
         adaptiveHeight: true,
         slidesToShow: 2,
         slidesToScroll: 1,
