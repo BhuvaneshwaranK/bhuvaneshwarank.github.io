@@ -1,6 +1,6 @@
 var index = 0;
 var captionLength = 0;
-var captionOptions = ["Data Scientist","Python Enthusiast","Social Activist"]
+var captionOptions = ["Data Scientist","Python Enthusiast","Social Activist", "Blogger"]
 
 // this will make the cursor blink at 400ms per cycle
 function cursorAnimation() {
